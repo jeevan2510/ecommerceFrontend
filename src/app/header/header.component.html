@@ -1,0 +1,40 @@
+<!-- Navigation-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-warning bg-secondary">
+    <div class="container px-4 ">
+        <div class="threeD" routerLink="products">
+            <h1><span>CartFlip</span></h1>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="nav-item"><a class="nav-link fw-bold" ><i
+                        class="bi bi-heart-fill fw-bold"></i>
+                 
+                </a></div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item">
+                    <form action="" class="search-bar">
+                        <input (keyup)="search($event)" placeholder="Search Here" type="search" name="search"
+                            pattern=".*\S.*" required>
+                        <button class="search-btn" type="submit">
+                            <span>Search</span>
+                        </button>
+                    </form>
+                </li>
+
+            </ul>   <h1 class=" wrapper-title bi  px-2 px-lg-2"><span> <i routerLink="products/wishlist" class="fa-solid fa-heart"></i></span> </h1>&nbsp;&nbsp;&nbsp;
+            <form class="d-flex">
+                <a routerLink="products/Cart" class="btn" type="submit">
+                    <i class="fw-bold   "></i><span>
+                        <h1 class=""><span class="text"><i class="fa-solid fa-cart-shopping"></i><span
+                                    class="badge bg-dark text-white ms-1 rounded-pill">{{cartItemCount}}</span></span>
+                        </h1>
+                    </span>
+                </a>
+            </form>
+
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,43 @@
+<!-- Product section-->
+
+<section style="margin-top: 4%;" class="py-3">
+    <div class="col mt-6">
+        <div class="container col mt-5 px-4 px-lg-9 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-5"><img class="card-img-top mb-5 mb-md-0 bg-transparent" [src]="viewProduct.image" alt="..." />
+                </div>
+                <div class="col-md-6">
+                    <hr>
+                    <div class="small mb-1">ID:{{viewProduct.id}}</div>
+                    <h1 class="display-5 fw-bolder">{{viewProduct.title}}</h1>
+                    <div class="fs-5 mb-5">
+                        <span class="text-decoration-line-through">$45.00</span>
+                        <span>${{viewProduct.price}}</span>
+                    </div>
+                    <p class="lead">{{viewProduct.description}}</p>
+                    <p>Rating:{{viewProduct.rating.rate}}</p>
+                    <div class="d-flex">
+                        <button (click)="addtowishlist(viewProduct)"
+                            class="btn btn-light glow-on-hover btn btn-outline-dark flex-shrink-0 text-center"
+                            type="button">
+                            <i class="bi-cart-fill me-1 text-center"></i>
+                            Add to Wishlist
+                        </button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button (click)="addToCart(viewProduct)"
+                            class="btn btn-light glow-on-hover btn btn-outline-dark flex-shrink-0 text-center"
+                            type="button">
+                            <i class="bi-cart-fill me-1 text-center"></i>
+                            Add to cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content">
+</div>

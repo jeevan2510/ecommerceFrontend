@@ -1,0 +1,110 @@
+<main class="app">
+    <div class="boxes">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <div class="snowflakes" aria-hidden="true">
+                <div class="snowflake">
+                    ❅
+                </div>
+                <div class="snowflake">
+                    ❅
+                </div>
+                <div class="snowflake">
+                    ❆
+                </div>
+                <div class="snowflake">
+                    ❄
+                </div>
+                <div class="snowflake">
+                    ❅
+                </div>
+                <div class="snowflake">
+                    ❆
+                </div>
+                <div class="snowflake">
+                    ❄
+                </div>
+                <div class="snowflake">
+                    ❅
+                </div>
+                <div class="snowflake">
+                    ❆
+                </div>
+                <div class="snowflake">
+                    ❄
+                </div>
+            </div>
+
+            <main class="app">
+                <div class="boxes">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+
+                        <!-- Header-->
+                        <header class="bg-transparent py-5">
+                            <div class=" bg-transparent container px-4 px-lg-5 my-5">
+                                <div class="bg-transparent text-center bg-light text-white">
+                                    <h1>
+                                        <span class="word bg-transparent">Shop With<span
+                                                class="superscript bg-transparent">
+                                            </span> </span>
+                                        <span class="word bg-transparent">CartFlip</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </header>
+                        <!-- Section-->
+                        <section class="py-5 bg-transparent">
+                            <div class="container px-4 px-lg-5 mt-5 bg-transparent">
+                                <div
+                                    class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center bg-transparent">
+                                    <div class="col mb-5 bg-transparent text-white"
+                                        *ngFor="let product of products | filter:searchItem:'title'">
+                                        <div class="card h-100 p-2 bg-transparent">
+                                            <!-- Product image-->
+                                            <img height="300px" class="card-img-top bg-transparent"
+                                                [src]="product.image" alt="product.title" />
+                                            <!-- Product details-->
+                                            <div class="card-body p-4 bg-transparent">
+                                                <div class="text-center bg-transparent">
+                                                    <!-- Product name-->
+                                                    <h5 class="fw-bolder bg-transparent">
+                                                        {{product.title.slice(0,10)}}...</h5>
+                                                    <!-- Product price-->
+                                                    ${{product.price}}
+                                                </div>
+                                            </div>
+                                            <!-- Product actions-->
+                                            <div class="card-footer text-center p-5 pt-0 border-top-0 bg-transparent">
+                                                <form class="d-flex bg-transparent">
+                                                    <a routerLink="view-product/:id" class="btn bg-transparent" type="submit">
+                                                        <i
+                                                            class="fw-bold bi-cart-fill me-1 bg-transparent"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <a class="button text-center "
+                                                            routerLink="view-product/{{product.id}}">View</a>
+                                                        <span class="badge bg-dark text-black ms-1 rounded-pill bg-transparent"></span>
+                                                    </a>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+
+
+
+
+                    </ul>
+                </div>
+
+            </main>

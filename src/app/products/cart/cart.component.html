@@ -1,0 +1,248 @@
+<!--empty wishlist-->
+<div class="context">
+</div>
+
+
+<div class="area">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <div *ngIf="cartItems.length==0" class="container mt-5">
+            <div class="row">
+                <div class="col mt-5 text-center">
+                    <main class="container">
+                        <p class="text-dark fw-bold">Hello 🛒 is</p>
+                        <section class="animation">
+                            <div class="first text-dark fw-bold ">
+                                <div>Empty</div>
+                            </div>
+                            <div class="second text-dark fw-bold">
+                                <div>Add Something </div>
+                            </div>
+                            <div routerLink="" class="third text-dark fw-bold">
+                                <div>➡️Shop</div>
+                            </div>
+
+                        </section>
+                    </main>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                </div>
+
+            </div>
+        </div>
+        <!--cart -->
+        <div *ngIf="cartItems.length!=0" class="container-fluid mb-5 mt-5">
+            <div class="row mt-5">
+                <div class="col-lg-8 border round p-3">
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Product image</th>
+                                <th>Quantity</th>
+                                <th>price</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of cartItems; let i=index">
+
+                                <th>{{i}}</th>
+                                <th><img width="40px" [src]="product.image" alt="product image"></th>
+                                <th>
+                                    <input type="num" class="form-control" value="1" style="max-width: 3rem;">
+                                </th>
+                                <th>
+                                    <h4><b class="text-dark ">{{product.price}}</b></h4>
+                                </th>
+                                <th><a (click)="removeItem(product)" class="text-danger "><i
+                                            class="fa-solid fa-trash"></i></a></th>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div class="col-lg-4  round p-3 text-center mt-5">
+                    <p>Total:<span class="fw-bold"></span> {{grantTotal}}</p>
+                    <p>Discount:<span>{{discount}}</span></p>
+
+                    <hr>
+                    <h5 class="animate__animated animate__shakeX">Grand Total:<span
+                            class="animate__animated animate__shakeX text-danger fw-bold">{{discountTotal}}</span></h5>
+                    <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float: center;"
+                        class="button btn btn-info btn fw-bold "><i
+                            class="fa-solid text-success fw-bold fa-tag absolute"></i>
+                        Offers</a>
+                    <a data-bs-toggle="modal" data-bs-target="#checkoutMode" style="float: right;"
+                        class="button btn btn-success absolute"><i
+                            class="fa-solid fa-file-invoice-dollar text-warning"></i> &nbsp;Check out</a>
+
+                </div>
+
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle fw-bold" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        more
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <a (click)="emptyCart()" style="float: left;" class="button btn btn-danger absolute"><i
+                                class="fa-solid fa-trash text-danger"></i> &nbsp;Empty
+                            Cart</a>
+                        <a routerLink="" style="float: center;" class="button btn btn-warning absolute"><i
+                                class="fa-sharp fa-solid fa-cart-plus text-info"></i> &nbsp;Shop
+                            More</a>
+
+                    </ul>
+                </div>
+
+            </div>
+            <hr>
+
+
+        </div>
+    </ul>
+
+    <!--offer-->
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade text-center bg-transparent" id="staticBackdrop" data-bs-backdrop="static"
+        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog bg-transparent">
+            <div class="modal-content bg-transparent">
+                <div class="modal-header bg-transparent">
+                    <h1 class="modal-title bg-transparent fs-5" id="staticBackdropLabel fw-bold text-black"></h1>
+                    <button type="button" class="btn-close bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-transparent">
+                    <div *ngIf="grantTotal>=1 && grantTotal<=100" class="d-flex align-items-center bg-transparent">
+                        <img (click)="discount30percent()" data-bs-dismiss="modal"
+                            src="https://thumbs.dreamstime.com/b/golden-percent-off-flat-cartoon-style-vector-logo-concept-percent-sale-isolated-icon-black-background-thirty-percent-discount-204482984.jpg"
+                            height="400px" width="500px" class="bg-transparent">
+                    </div>
+                    <div *ngIf="grantTotal>=100 && grantTotal<=1000" class="d-flex align-items-center bg-transparent">
+                        <img (click)="discount40percent()" data-bs-dismiss="modal"
+                            src="https://zeevector.com/wp-content/uploads/Discount/Grand-Sale-40-Percent-Off-Vector.png"
+                            class="bg-transparent " height="400px" width="400px">
+                    </div>
+                    <div *ngIf="grantTotal>=1000 && grantTotal<=10000" class="d-flex align-items-center bg-transparent">
+                        <img (click)="discount60percent()" data-bs-dismiss="modal"
+                            src="https://zeevector.com/wp-content/uploads/Discount/60-Percent-OFF-Vector-FREE.png"
+                            height="500px" width="400px" class="bg-transparent">
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar sticky-bottom ">
+
+
+    </div>
+
+    <div class=" bg-transparent text-white" class="modal fade" id="checkoutMode" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog bg-transparent text-white">
+            <div class="modal-content bg-transparent text-white">
+                <form action="">
+                    <button type="button" class="btn-close bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                    <div class="" id="checkoutMode bg-transparent">
+                        <div class=" text-white">
+                            <h3 class="text-white text-center fw-bold">Billing Address</h3>
+                            <label for="fname"><i class="fa fa-user bg-transparent text-white"></i> Full Name</label>
+                            <hr>
+                            <input class="bg-transparent text-white" type="text" id="fname" name="firstname "
+                                placeholder="Jeevan">
+                            <hr>
+                            <label for="email"><i class="fa fa-envelope bg-transparent text-white"></i> Email</label>
+                            <hr>
+                            <input class="bg-transparent text-white" type="text" id="email" name="email"
+                                placeholder="jR@example.com">
+                            <hr>
+                            <label for="adr"><i class="fa fa-address-card-o bg-transparent text-white"><i
+                                        class="fa-solid fa-location-dot"></i></i> Address</label>
+                            <hr>
+                            <input class="bg-transparent text-white" type="text" id="adr" name="address"
+                                placeholder="kodakara Thrissur">
+                            <hr>
+                            <label for="city"><i class="fa fa-institution bg-transparent text-white"></i> City</label>
+                            <hr>
+                            <input class="bg-transparent text-white" type="text" id="city" name="city"
+                                placeholder="Thrissur">
+                            <hr>
+
+                            <div class="bg-transparent">
+                                <div class="bg-transparent">
+                                    <hr>
+                                    <label class="bg-transparent text-white" for="state">State</label>
+                                    <hr>
+                                    <input class="bg-transparent text-white" type="text" id="state" name="state"
+                                        placeholder="kerala">
+                                    <hr>
+                                </div>
+                                <hr>
+                                <div class="bg-transparent">
+                                    <hr>
+                                    <label class="bg-transparent text-white" for="zip">PIN</label>
+                                    <hr>
+                                    <input class="bg-transparent text-white" type="text" id="zip" name="zip"
+                                        placeholder="10001">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="bg-transparent">
+                            <hr>
+                            <h3>Payment</h3>
+                            <hr>
+                            <label for="fname"></label>
+                            <hr>
+                            <div class="icon-container bg-transparent">
+                                <hr>
+                                &nbsp;&nbsp;&nbsp;<i
+                                    class="fa-brands fa-google-pay bg-transparent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i><i
+                                    class="fa-regular fa-credit-card bg-transparent"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                                    class="fa-brands fa-paypal bg-transparent"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                                    class="fa-brands fa-apple-pay bg-transparent"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                                    class="fa-brands fa-bitcoin"></i>
+                                <hr>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <label>
+                        <input class="bg-transparent text-white" type="checkbox" checked="checked" name="sameadr">
+                        Shipping address same as billing
+                    </label>
+                </form>
+            </div>
+        </div>
+        <h1 type="button" class="btn btn-secondary bg-transparent text-danger fs-3 fw-bold" data-bs-dismiss="modal">
+            Cancel</h1>&nbsp;&nbsp;&nbsp;&nbsp;
+        <h1 type="button" (click)="checkout()" class="btn btn-primary bg-transparent text-success fs-3 fw-bold ">Pay
+        </h1>
+
+        <div class="fw-bold text-warning fs-3 bg-transparent text-center fs-1 fw-bolder">{{checkoutMsg}}</div>

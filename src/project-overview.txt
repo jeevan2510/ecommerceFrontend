@@ -1,0 +1,21 @@
+-create angular project-ng new project-name
+-run angular project-ng sereve
+-add boostrap,font awsome,google fonts in index.html
+-clean app.component.html 
+-lazy loadin creation(all products)
+ng g m module-name --route module-name --module root module-name
+-create components
+    -header - appmodule
+    -all products :-lazy load(decres loading time)-products module
+    -cart-products module
+    -wishlist-products module
+    -footer-appmodule
+    -page not found-app module
+    -view product-products module
+set up path for each component(only for pages need to load new pages)
+        -all products
+        -cart
+        -wishlist
+        -paGE NOT found
+        -view product
+ design components       
